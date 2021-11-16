@@ -2,13 +2,24 @@ class CampingSpotsController < ApplicationController
   before_action :set_camping_spot, only: [:show, :edit, :update, :destroy]
 
   def new
+    @camping_spot = CampingSpot.new
+    authorize(@camping_spot)
   end
 
   def create
+    @camping_spot = CampingSpot.new(camping_spot_params)
+    @camping_spot.host = current_user
+    authorize(@camping_spot)
+
+    if @camping_spot.save
+      redirect_to camping_spots_path
+    else
+      render :new
+    end
   end
 
   def index
-    @camping_spots = policy_scope(CampingSpot).order(created_at: :desc)
+    @camping_spots = policy_scope(CampingSpot)
   end
 
   def show
@@ -30,6 +41,6 @@ class CampingSpotsController < ApplicationController
   end
 
   def camping_spot_params
-    # TODO: need to permit camping_spot params
+    params.require(:camping_spot).permit(:location, :price, :capacity, :description)
   end
 end
