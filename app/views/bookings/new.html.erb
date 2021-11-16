@@ -1,0 +1,7 @@
+<h1>Book this spot</h1>
+
+<%= simple_form_for [@camping_spot, @booking] do |f| %>
+  <%= f.input :arrival_date %>
+  <%= f.input :departure_date %>
+  <%= f.submit %>
+<% end %>

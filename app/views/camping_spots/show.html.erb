@@ -4,3 +4,5 @@
   <li>Owner: <%= @camping_spot.host.first_name %></li>
   <li>Description: <%= @camping_spot.description %></li>
 </ul>
+
+<%= link_to 'Book this camping spot', new_camping_spot_booking_path(@camping_spot) %>

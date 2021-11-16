@@ -1,0 +1,7 @@
+<h1>My Bookings</h1>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.camping_spot.location %> - status: <%= booking.status %></li>
+  <% end %>
+</ul>
