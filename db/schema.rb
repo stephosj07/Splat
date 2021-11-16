@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_223706) do
+ActiveRecord::Schema.define(version: 2021_11_16_154727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.date "arrival_date"
+    t.date "departure_date"
+    t.bigint "camping_spot_id", null: false
+    t.bigint "visitor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["camping_spot_id"], name: "index_bookings_on_camping_spot_id"
+    t.index ["visitor_id"], name: "index_bookings_on_visitor_id"
+  end
 
   create_table "camping_spots", force: :cascade do |t|
     t.string "location"
@@ -40,5 +52,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_223706) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "camping_spots"
+  add_foreign_key "bookings", "users", column: "visitor_id"
   add_foreign_key "camping_spots", "users", column: "host_id"
 end
