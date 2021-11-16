@@ -8,6 +8,7 @@ class CampingSpotsController < ApplicationController
   end
 
   def index
+    @camping_spots = policy_scope(CampingSpot).order(created_at: :desc)
   end
 
   def show
@@ -25,8 +26,10 @@ class CampingSpotsController < ApplicationController
   private
 
   def set_camping_spot
+    @camping_spot = CampingSpot.find(params[:id])
   end
 
   def camping_spot_params
+    # TODO: need to permit camping_spot params
   end
 end
