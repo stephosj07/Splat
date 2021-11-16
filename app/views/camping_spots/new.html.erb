@@ -1,0 +1,9 @@
+<h1>Add a new camping spot</h1>
+
+<%= simple_form_for @camping_spot do |f| %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :capacity %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>

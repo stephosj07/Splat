@@ -1,0 +1,9 @@
+<h1>All Camping Spots</h1>
+
+<ul>
+  <% @camping_spots.each do |camping_spot| %>
+    <li><%= camping_spot.location %>: <%= camping_spot.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new camping spot', new_camping_spot_path %>
