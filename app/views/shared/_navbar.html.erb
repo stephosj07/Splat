@@ -1,17 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-splat">
-  <a class="navbar-brand" href="#">
-    <img src="https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-van-transportation-konkapp-flat-konkapp-1.png"/>
-  </a>
+  <%= link_to image_tag("https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-van-transportation-konkapp-flat-konkapp-1.png"), root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <ul class="navbar-nav option">
     <li class="nav-item active px-4">
-      <a class="nav-link" href="#">Places to stay</a>
+      <%= link_to "Places to stay", camping_spots_path, class: "nav-link" %>
+      <%# <a class="nav-link" href="#">Places to stay</a> %>
     </li>
     <li class="nav-item active px-4">
-      <a class="nav-link" href="#">Become a host</a>
+      <%= link_to "Become a host", new_camping_spot_path, class: "nav-link" %>
+      <%# <a class="nav-link" href="#">Become a host</a> %>
     </li>
   </ul>
 
