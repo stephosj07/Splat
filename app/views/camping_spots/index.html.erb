@@ -2,7 +2,7 @@
 
 <ul>
   <% @camping_spots.each do |camping_spot| %>
-    <li><%= camping_spot.location %>: <%= camping_spot.description %></li>
+    <li><%= link_to camping_spot.location, camping_spot_path(camping_spot) %>: <%= camping_spot.description %></li>
   <% end %>
 </ul>
 

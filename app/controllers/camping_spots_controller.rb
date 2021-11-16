@@ -38,6 +38,7 @@ class CampingSpotsController < ApplicationController
 
   def set_camping_spot
     @camping_spot = CampingSpot.find(params[:id])
+    authorize(@camping_spot)
   end
 
   def camping_spot_params
