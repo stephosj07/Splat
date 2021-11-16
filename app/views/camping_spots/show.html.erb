@@ -1,12 +1,12 @@
 <h1><%= @camping_spot.location %></h1>
 
+<% @camping_spot.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <ul>
   <li>Owner: <%= @camping_spot.host.first_name %></li>
   <li>Description: <%= @camping_spot.description %></li>
 </ul>
 
-<% @camping_spot.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<%= link_to 'Book this camping spot', new_camping_spot_booking_path(@camping_spot) %>
+<%= link_to 'Book this camping spot', new_camping_spot_booking_path(@camping_spot), class: 'btn btn-primary' %>

@@ -3,5 +3,5 @@
 <%= simple_form_for [@camping_spot, @booking] do |f| %>
   <%= f.input :arrival_date %>
   <%= f.input :departure_date %>
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
