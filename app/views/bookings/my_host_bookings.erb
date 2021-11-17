@@ -1,7 +1,7 @@
 <h1>My Requests</h1>
 
 <ul>
-  <% @bookings.each do |booking| %>
+  <% @my_host_bookings.each do |booking| %>
     <li><%= booking.visitor.first_name %></li>
   <% end %>
 </ul>

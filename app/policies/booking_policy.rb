@@ -9,7 +9,7 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def my_requests?
-    true
+  def my_host_bookings?
+    record.camping_spot.host == user
   end
 end

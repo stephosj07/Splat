@@ -25,8 +25,7 @@ class BookingsController < ApplicationController
 
   def my_host_bookings
     @my_host_bookings = current_user.host_bookings
-    raise
-    authorize(@my_host_bookings)
+    authorize(@my_host_bookings.first)
   end
 
   private
