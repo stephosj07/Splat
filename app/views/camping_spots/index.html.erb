@@ -1,8 +1,21 @@
-<h1>All Camping Spots</h1>
-
-<ul>
+<ul class="cards">
+  <h1>Awesome Camping Spots</h1>
   <% @camping_spots.each do |camping_spot| %>
-    <li><%= link_to camping_spot.location, camping_spot_path(camping_spot) %>: <%= camping_spot.description %></li>
+    <li class="card camping_spot-card">
+      <div class="card-container">
+        <%= cl_image_tag camping_spot.photos.first, height: 250, width: 350, crop: :fill %>
+        <div class="card-container__items">
+          <div class="card-text">
+            <%= link_to "camping_spot name/title", camping_spot_path(camping_spot) %>:<br />
+            <p><%= camping_spot.description %></p>
+            <p>Location:<br/>
+              <%= camping_spot.location %>
+            </p>
+          </div>
+          <h2 class="card-price"><%= camping_spot.price %>$ / night</h2>
+        </div>
+      </div>
+    </li>
   <% end %>
 </ul>
 
