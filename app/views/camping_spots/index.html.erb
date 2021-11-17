@@ -8,7 +8,7 @@
         <% end %>
         <div class="card-container__items">
           <div class="card-text">
-            <%= link_to "camping_spot name/title", camping_spot_path(camping_spot) %>:<br />
+            <%= link_to camping_spot.title, camping_spot_path(camping_spot) %>:<br />
             <p><%= camping_spot.description %></p>
             <p>Location:<br/>
               <%= camping_spot.location %>

@@ -5,8 +5,9 @@
     <% end %>
   <% #end %>
   <div class="card-product-infos">
-    <h1><%= @camping_spot.location %></h1>
+    <h1><%= @camping_spot.title %></h1>
     <p><%= @camping_spot.description %></p>
+    <p><%= @camping_spot.location %></p>
     <p>Quantity of lots: <%= @camping_spot.capacity %></p>
     <p>Hosted by: <%= @camping_spot.host.first_name %></p>
     <div class="confirm">
