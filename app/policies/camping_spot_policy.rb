@@ -12,4 +12,8 @@ class CampingSpotPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def my_host_spots?
+    true
+  end
 end
