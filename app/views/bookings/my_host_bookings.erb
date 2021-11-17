@@ -8,7 +8,7 @@
   <ul class="list-group">
     <% @pending_bookings.each do |booking| %>
       <li class="list-group-item bg-transparent">
-        <%= booking.camping_spot.location %>:
+        <%= booking.camping_spot.title %>:
         <%= booking.visitor.first_name %> <%= booking.visitor.last_name %>
         <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
         <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
@@ -25,7 +25,7 @@
   <ul class="list-group">
     <% @approved_bookings.each do |booking| %>
       <li class="list-group-item list-group-item-success">
-        <%= booking.camping_spot.location %>:
+        <%= booking.camping_spot.title %>:
         <%= booking.visitor.first_name %> <%= booking.visitor.last_name %>
       </li>
     <% end %>
