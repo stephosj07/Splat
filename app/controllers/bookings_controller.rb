@@ -23,6 +23,12 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking)
   end
 
+  def my_host_bookings
+    @my_host_bookings = current_user.host_bookings
+    raise
+    authorize(@my_host_bookings)
+  end
+
   private
 
   def set_camping_spot

@@ -34,6 +34,11 @@ class CampingSpotsController < ApplicationController
   def destroy
   end
 
+  def my_host_spots
+    @camping_spots = CampingSpot.where(host: current_user)
+    authorize(@camping_spots.first)
+  end
+
   private
 
   def set_camping_spot

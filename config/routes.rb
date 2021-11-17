@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :camping_spots do
     resources :bookings, only: [:new, :create]
   end
+  get '/my_spots', to: 'camping_spots#my_host_spots', as: :my_spots
   get '/my_bookings', to: 'bookings#index', as: :my_bookings
+  get '/my_booking_requests', to: 'bookings#my_host_bookings', as: :my_requests
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
