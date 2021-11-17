@@ -1,8 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-splat">
-  <%= link_to image_tag("https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-van-transportation-konkapp-flat-konkapp-1.png"), root_path, class: "navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <%= link_to image_tag("https://img.icons8.com/external-konkapp-flat-konkapp/64/000000/external-van-transportation-konkapp-flat-konkapp-1.png"), root_path, class: "navbar-brand" %>
 
   <ul class="navbar-nav option">
     <li class="nav-item active px-4">
@@ -25,8 +22,9 @@
           </div>
         </li>
       <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
-        <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
+        <div class="devise-links">
+          <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
+        </div>
       <% end %>
     </ul>
   </div>
