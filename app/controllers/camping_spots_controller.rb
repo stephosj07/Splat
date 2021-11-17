@@ -36,7 +36,7 @@ class CampingSpotsController < ApplicationController
 
   def my_host_spots
     @camping_spots = CampingSpot.where(host: current_user)
-    authorize(@camping_spots.first)
+    authorize(@camping_spots)
   end
 
   private

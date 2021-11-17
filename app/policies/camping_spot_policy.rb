@@ -14,6 +14,6 @@ class CampingSpotPolicy < ApplicationPolicy
   end
 
   def my_host_spots?
-    record.host == user
+    true
   end
 end
