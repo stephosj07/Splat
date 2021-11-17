@@ -12,8 +12,15 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   padding-top: 50px;
   padding-bottom: 50px;
-  min-height: calc(100vh - 150px);
+  flex-grow: 1;
+  // min-height: calc(100vh - 150px);
 }
