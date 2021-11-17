@@ -10,4 +10,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  padding-bottom: 50px;
+  color: #C16E19;
+  font-size: 80px;
+}
+
+h2 {
+  padding-bottom: 130px;
 }
