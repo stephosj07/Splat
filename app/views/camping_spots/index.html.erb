@@ -3,7 +3,9 @@
   <% @camping_spots.each do |camping_spot| %>
     <li class="card camping_spot-card">
       <div class="card-container">
-        <%= cl_image_tag camping_spot.photos.first, height: 250, width: 350, crop: :fill %>
+        <% if camping_spot.photos.attached? %>
+          <%= cl_image_tag camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
+        <% end %>
         <div class="card-container__items">
           <div class="card-text">
             <%= link_to "camping_spot name/title", camping_spot_path(camping_spot) %>:<br />
@@ -18,5 +20,3 @@
     </li>
   <% end %>
 </ul>
-
-<%= link_to 'Add a new camping spot', new_camping_spot_path %>
