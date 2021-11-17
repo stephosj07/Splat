@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :camping_spots, foreign_key: :host_id
   has_many :bookings, foreign_key: :visitor_id
+  has_many :host_bookings, through: :camping_spots, source: :bookings
 end

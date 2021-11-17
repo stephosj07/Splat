@@ -1,0 +1,33 @@
+<h1>My Host Bookings</h1>
+
+<h2>Pending Requests</h2>
+
+<% if @pending_bookings.blank? %>
+  <p>You have no pending bookings.</p>
+<% else %>
+  <ul class="list-group">
+    <% @pending_bookings.each do |booking| %>
+      <li class="list-group-item bg-transparent">
+        <%= booking.camping_spot.location %>:
+        <%= booking.visitor.first_name %> <%= booking.visitor.last_name %>
+        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
+        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+      </li>
+    <% end %>
+</ul>
+<% end %>
+
+<h2>Approved Requests</h2>
+
+<% if @approved_bookings.blank? %>
+  <p>You have no approved bookings yet.</p>
+<% else %>
+  <ul class="list-group">
+    <% @approved_bookings.each do |booking| %>
+      <li class="list-group-item list-group-item-success">
+        <%= booking.camping_spot.location %>:
+        <%= booking.visitor.first_name %> <%= booking.visitor.last_name %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
