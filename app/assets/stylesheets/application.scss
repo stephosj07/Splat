@@ -11,3 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 150px);
+}
