@@ -1,6 +1,8 @@
 .navbar-splat {
   justify-content: space-between;
-  background: #E2CCC2;
+  background: $beige;
+  position: sticky;
+  top: 0;
 }
 
 .navbar-splat .navbar-collapse {

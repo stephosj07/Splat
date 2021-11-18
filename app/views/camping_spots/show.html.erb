@@ -1,20 +1,28 @@
 <div class="row">
-  <div class="card-container show-spot">
-    <% if @camping_spot.photos.attached? %>
-      <%= cl_image_tag @camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
-    <% end %>
-    <div class="card-container__items">
-      <div class="card-text">
-        <h2><%= @camping_spot.title %>:</h2>
-        <p><%= @camping_spot.description %></p>
-        <p><em>Location: </em><%= @camping_spot.location %>
-        <p>Quantity of lots: <%= @camping_spot.capacity %></p>
-        <p>Hosted by: <%= @camping_spot.host.first_name %></p>
-        </p>
+  <div class="container">
+    <div class="card-container show-card">
+      <div class="col-sm-12 col-lg-6">
+        <div>
+          <% if @camping_spot.photos.attached? %>
+            <%= cl_image_tag @camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
+          <% end %>
+        </div>
       </div>
-      <h2 class="card-price"><%= @camping_spot.price %>$ / night</h2>
-      <div class="confirm">
-        <%= link_to 'Book this camping spot', new_camping_spot_booking_path(@camping_spot), class: 'btn btn-primary' %>
+      <div class="col-sm-12 col-lg-6">
+        <div class="show-card-items">
+          <div class="card-text">
+            <h2><%= @camping_spot.title %>:</h2>
+            <p><%= @camping_spot.description %></p>
+            <p><em>Location: </em><%= @camping_spot.location %>
+            <p>Quantity of lots: <%= @camping_spot.capacity %></p>
+            <p>Hosted by: <%= @camping_spot.host.first_name %></p>
+            </p>
+          </div>
+          <h2 class="card-price"><%= @camping_spot.price %>$ / night</h2>
+          <div class="confirm">
+            <%= link_to 'Book this camping spot', new_camping_spot_booking_path(@camping_spot), class: 'btn btn-primary' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
