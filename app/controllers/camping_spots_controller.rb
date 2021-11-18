@@ -29,6 +29,12 @@ class CampingSpotsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { camping_spot: camping_spot })
       }
     end
+
+    if params[:query].present?
+      @camping_spots = CampingSpot.search_by_title_and_location_and_description(params[:query])
+    else
+      @camping_spots = CampingSpot.all
+    end
   end
 
   def show
