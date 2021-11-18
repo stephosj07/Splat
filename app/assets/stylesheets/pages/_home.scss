@@ -20,3 +20,21 @@
 .banner h2 {
   padding-bottom: 70px;
 }
+
+.banner .form-control {
+  width: 300px;
+  border-radius: 20px;
+}
+
+.banner .search {
+  form{
+    display: flex;
+  }
+  padding-bottom: 100px;
+  padding-top: 5px;
+}
+
+.banner .btn {
+  justify-content: center;
+  border-radius: 20px;
+}
