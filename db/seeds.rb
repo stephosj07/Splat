@@ -1,8 +1,8 @@
 require 'open-uri'
 
+Booking.destroy_all
 CampingSpot.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 # Users
 

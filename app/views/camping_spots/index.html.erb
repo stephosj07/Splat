@@ -1,33 +1,32 @@
 <div class="row">
   <div class="col-12">
-    <h1>Awesome Camping Spots</h1>
+    <h1 class="text-center">Awesome Camping Spots</h1>
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12 col-lg-6 order-sm-2 order-lg-1">
+  <div class="col-sm-12 col-md-12 col-lg-6 order-sm-2 order-lg-1">
     <div class="cards">
       <% @camping_spots.each do |camping_spot| %>
         <%= link_to camping_spot_path(camping_spot) do %>
-          <div class="card-container">
-            <% if camping_spot.photos.attached? %>
-              <%= cl_image_tag camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
-            <% end %>
-            <div class="card-container__items">
-              <div class="card-text">
-                <p><strong><%= camping_spot.title %>:</strong></p>
-                <p><%= camping_spot.description %></p>
-                <p>Location:<br/>
-                  <%= camping_spot.location %>
-                </p>
-              </div>
-              <h2 class="card-price"><%= camping_spot.price %>$ / night</h2>
+        <div class="card-container">
+          <% if camping_spot.photos.attached? %>
+            <%= cl_image_tag camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
+          <% end %>
+          <div class="card-container__items">
+            <div class="card-text">
+              <h2><%= camping_spot.title %>:</h2>
+              <p><%= camping_spot.description %></p>
+              <p><em>Location: </em><%= camping_spot.location %>
+              </p>
             </div>
+            <h2 class="card-price"><%= camping_spot.price %>$ / night</h2>
           </div>
+        </div>
         <% end %>
       <% end %>
     </div>
   </div>
-  <div class="col-sm-12 col-lg-6 order-sm-1 order-lg-2">
+  <div class="col-sm-12 col-md-12 col-lg-6 order-sm-1 order-lg-2">
     <div id="map"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
