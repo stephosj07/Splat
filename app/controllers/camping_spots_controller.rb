@@ -22,11 +22,11 @@ class CampingSpotsController < ApplicationController
     @camping_spots = policy_scope(CampingSpot)
     @camping_spot_map = CampingSpot.all
 
-    @markers = @camping_spot_map.geocoded.map do |flat|
+    @markers = @camping_spot_map.geocoded.map do |camping_spot|
       {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+        lat: camping_spot.latitude,
+        lng: camping_spot.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { camping_spot: camping_spot })
       }
     end
   end
