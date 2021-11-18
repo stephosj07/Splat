@@ -1,7 +1,29 @@
 <h1>My Bookings</h1>
 
-<ul>
-  <% @my_visitor_bookings.each do |booking| %>
-    <li><%= booking.camping_spot.location %> - status: <%= booking.status %></li>
-  <% end %>
-</ul>
+<% @my_visitor_bookings.each do |booking| %>
+  <div class="card mb-5 bg-transparent bookings-card">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <%= cl_image_tag booking.camping_spot.photos.first.key, crop: :fill %>
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h2 class="card-title"><%= link_to booking.camping_spot.title, camping_spot_path(booking.camping_spot) %></h2>
+          <p class="card-text">Camping Spot Owner: <%= booking.camping_spot.host.name %></p>
+          <p class="card-text">Arrival Date: <%= booking.arrival_date %></p>
+          <p class="card-text">Departure Date: <%= booking.departure_date %></p>
+          <p class="card-text p-3 bookings-alert <%= 
+            case booking.status
+            when "approved"
+              "alert-success"
+            when "declined"
+              "alert-danger"
+            else
+              "alert-warning"
+            end
+           %>">Status: <%= booking.status %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
