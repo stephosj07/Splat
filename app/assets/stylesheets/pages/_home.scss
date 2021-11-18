@@ -4,21 +4,19 @@
   margin: 0;
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
   asset-url("home-background.jpg");
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  h1 {
+    font-size: 80px;
+  }
 }
 
-h1 {
-  padding-bottom: 50px;
-  color: #C16E19;
-  font-size: 80px;
-}
-
-h2 {
-  padding-bottom: 50px;
+.banner h2 {
+  padding-bottom: 70px;
 }
