@@ -29,9 +29,15 @@ class CampingSpotsController < ApplicationController
   end
 
   def update
+    @camping_spot.update(camping_spot_params)
+
+    redirect_to my_spots_path
   end
 
   def destroy
+    @camping_spot.destroy
+
+    redirect_to my_spots_path
   end
 
   def my_host_spots
