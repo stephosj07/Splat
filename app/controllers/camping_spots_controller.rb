@@ -47,6 +47,6 @@ class CampingSpotsController < ApplicationController
   end
 
   def camping_spot_params
-    params.require(:camping_spot).permit(:location, :price, :capacity, :description, photos: [])
+    params.require(:camping_spot).permit(:title, :location, :price, :capacity, :description, photos: [])
   end
 end
