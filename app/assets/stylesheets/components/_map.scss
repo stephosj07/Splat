@@ -4,10 +4,10 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  color: #000000;
+  font-family: $body-font;
+  color: $black;
   padding-bottom: 0;
-  background-color: #C16E19;
+  background-color: $yellow;
 }
 
 .row #map {
