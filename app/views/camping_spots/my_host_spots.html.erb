@@ -2,6 +2,11 @@
 
 <ul>
   <% @camping_spots.each do |camping_spot| %>
-    <li><%= camping_spot.location %></li>
+    <li>
+      <%= camping_spot.location %>
+      <%= link_to 'edit', edit_camping_spot_path(camping_spot), class: 'btn btn-warning' %>
+      <%= link_to 'delete', camping_spot_path(camping_spot), method: :delete,
+                  class: 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+    </li>
   <% end %>
 </ul>
