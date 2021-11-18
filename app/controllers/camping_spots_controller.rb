@@ -20,6 +20,14 @@ class CampingSpotsController < ApplicationController
 
   def index
     @camping_spots = policy_scope(CampingSpot)
+    @camping_spot_map = CampingSpot.all
+
+    @markers = @camping_spot_map.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
