@@ -1,25 +1,34 @@
-<ul class="cards">
-  <h1>Awesome Camping Spots</h1>
-  <% @camping_spots.each do |camping_spot| %>
-    <li class="card camping_spot-card">
-      <div class="card-container">
-        <% if camping_spot.photos.attached? %>
-          <%= cl_image_tag camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
-        <% end %>
-        <div class="card-container__items">
-          <div class="card-text">
-            <%= link_to camping_spot.title, camping_spot_path(camping_spot) %>:<br />
-            <p><%= camping_spot.description %></p>
-            <p>Location:<br/>
-              <%= camping_spot.location %>
-            </p>
+<div class="row">
+  <div class="col-12">
+    <h1>Awesome Camping Spots</h1>
+  </div>
+</div>
+<div class="row">
+<%# add map here in new col with same attributes %>
+  <div class="col-sm-12 col-lg-6">
+    <div class="cards">
+      <% @camping_spots.each do |camping_spot| %>
+        <%= link_to camping_spot_path(camping_spot) do %>
+          <div class="card-container">
+            <% if camping_spot.photos.attached? %>
+              <%= cl_image_tag camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
+            <% end %>
+            <div class="card-container__items">
+              <div class="card-text">
+                <p><strong><%= camping_spot.title %>:</strong></p>
+                <p><%= camping_spot.description %></p>
+                <p>Location:<br/>
+                  <%= camping_spot.location %>
+                </p>
+              </div>
+                          <h2 class="card-price"><%= camping_spot.price %>$ / night</h2>
+            </div>
           </div>
-          <h2 class="card-price"><%= camping_spot.price %>$ / night</h2>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div id="map"
      style="width: 100%; height: 600px;"
