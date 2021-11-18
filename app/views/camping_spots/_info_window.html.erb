@@ -1,5 +1,5 @@
-<h2><%= flat.title %></h2>
-<% if flat.photos.attached? %>
-      <%= cl_image_tag flat.photos.first.key, height: 150, width: 150, crop: :fill %>
+<h2><%= camping_spot.title %></h2>
+<% if camping_spot.photos.attached? %>
+      <%= cl_image_tag camping_spot.photos.first.key, height: 150, width: 150, crop: :fill %>
 <% end %>
-<p><%= flat.description %></p>
+<p><%= camping_spot.description %></p>
