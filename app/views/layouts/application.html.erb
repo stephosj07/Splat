@@ -13,22 +13,19 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
 
     <% # Add a bootstrap container, except for pages#home %>
     <% unless params[:controller] == "pages" && params[:action] == "home" %>
       <div class="container">
     <% end %>
 
-    <%# <p class="notice"><%= notice %>
-    <%# </p> %>
-    <%# <p class="alert"><%= alert %>
-    <%# </p> %>
       <%= yield %>
 
     <% unless params[:controller] == "pages" && params[:action] == "home" %>
       </div>
     <% end %>
- 
+
 
     <%= render 'shared/footer' %>
   </body>
