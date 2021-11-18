@@ -1,4 +1,14 @@
 <div class="banner">
     <h1>Splat</h1>
     <h2>Find your overnight camping spot !</h2>
+      <div class="search">
+        <%= form_tag camping_spots_path, method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a camping spot"
+            %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
 </div>
