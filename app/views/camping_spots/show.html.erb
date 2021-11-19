@@ -59,6 +59,14 @@
       <ul class="list-group">
         <% @camping_spot.reviews.each do |review| %>
           <li class="list-group-item bg-transparent" id="review-<%= review.id %>">
+            <div id="rating">
+              <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% review.blank_stars.times do %>
+               <i class="far fa-star"></i><br />
+              <% end %>
+            </div>
             <p class="font-weight-bold"><%= review.rating %> stars - <%= review.booking.visitor.name %></p>
             <p><%= review.content %></p>
           </li>
