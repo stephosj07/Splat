@@ -1,6 +1,12 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  top: 90px;
+  left: 38px;
   z-index: 1000;
+}
+
+.alert-info, .alert-warning {
+  color: $yellow;
+  background-color: white;
+  border-color: white;
 }
