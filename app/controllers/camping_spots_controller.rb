@@ -12,7 +12,7 @@ class CampingSpotsController < ApplicationController
     authorize(@camping_spot)
 
     if @camping_spot.save
-      redirect_to camping_spots_path
+      redirect_to my_spots_path
     else
       render :new
     end
@@ -38,15 +38,19 @@ class CampingSpotsController < ApplicationController
   end
 
   def show
+    @booking = @camping_spot.bookings.find_by(visitor: current_user)
+    @review = Review.new
   end
 
   def edit
   end
 
   def update
-    @camping_spot.update(camping_spot_params)
-
-    redirect_to my_spots_path
+    if @camping_spot.update(camping_spot_params)
+      redirect_to my_spots_path
+    else
+      render :edit
+    end
   end
 
   def destroy
