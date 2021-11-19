@@ -3,3 +3,4 @@
       <%= cl_image_tag camping_spot.photos.first.key, height: 150, width: 150, crop: :fill %>
 <% end %>
 <p><%= camping_spot.description %></p>
+ <%= link_to 'More info', camping_spot, class: 'btn btn-primary' %>
