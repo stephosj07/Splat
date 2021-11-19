@@ -12,7 +12,7 @@ class CampingSpotsController < ApplicationController
     authorize(@camping_spot)
 
     if @camping_spot.save
-      redirect_to camping_spots_path
+      redirect_to my_spots_path
     else
       render :new
     end
