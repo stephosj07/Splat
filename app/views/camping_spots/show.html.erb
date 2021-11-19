@@ -4,7 +4,26 @@
       <div class="col-sm-12 col-lg-6">
         <div>
           <% if @camping_spot.photos.attached? %>
-            <%= cl_image_tag @camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <%= cl_image_tag @camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
+                </div>
+                  <% @camping_spot.photos.each do |photo_id| %>
+                    <div class="carousel-item">
+                      <%= cl_image_tag photo_id.key, height: 250, width: 350, crop: :fill %>
+                    </div>
+                  <% end %>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           <% end %>
         </div>
       </div>
