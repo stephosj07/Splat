@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     authorize(@review)
 
     if @review.save
-      redirect_to camping_spot_path(@camping_spot)
+      redirect_to camping_spot_path(@camping_spot, anchor: "review-#{@review.id}")
     else
       render 'camping_spots/show'
     end
