@@ -1,6 +1,9 @@
 <div class="banner">
     <h1>Splat</h1>
-    <h2>Find your overnight camping spot !</h2>
+
+      <h2><span id="banner-typed-text"></span></h2>
+
+      <span id="banner-typed-text"></span>
       <div class="search">
         <%= form_tag camping_spots_path, method: :get do %>
             <%= text_field_tag :query,
