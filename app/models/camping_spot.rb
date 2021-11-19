@@ -1,7 +1,7 @@
 class CampingSpot < ApplicationRecord
   belongs_to :host, foreign_key: :host_id, class_name: 'User'
-  has_many :bookings
-  has_many :reviews, through: :bookings
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, through: :bookings, dependent: :destroy
   has_many_attached :photos
 
   geocoded_by :location
