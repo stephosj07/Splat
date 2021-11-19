@@ -9,7 +9,7 @@
                 <div class="carousel-item active">
                   <%= cl_image_tag @camping_spot.photos.first.key, height: 250, width: 350, crop: :fill %>
                 </div>
-                  <% @camping_spot.photos.each do |photo_id| %>
+                  <% @camping_spot.photos.drop(1).each do |photo_id| %>
                     <div class="carousel-item">
                       <%= cl_image_tag photo_id.key, height: 250, width: 350, crop: :fill %>
                     </div>
