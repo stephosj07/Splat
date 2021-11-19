@@ -1,6 +1,6 @@
-<h1>My Host Bookings</h1>
+<h1 class="mb-3">My Host Bookings</h1>
 
-<h2>Pending Requests</h2>
+<h2 class="my-4">Pending Requests</h2>
 
 <% if @pending_bookings.blank? %>
   <p>You have no pending bookings.</p>
@@ -19,14 +19,14 @@
 </ul>
 <% end %>
 
-<h2>Approved Requests</h2>
+<h2 class="my-4">Approved Requests</h2>
 
 <% if @approved_bookings.blank? %>
   <p>You have no approved bookings yet.</p>
 <% else %>
   <ul class="list-group">
     <% @approved_bookings.each do |booking| %>
-      <li class="list-group-item list-group-item-success">
+      <li class="list-group-item bg-transparent">
         <h3><%= link_to booking.camping_spot.title, camping_spot_path(booking.camping_spot) %></h3>
         <p>Visitor: <%= booking.visitor.name %></p>
         <p>Arrival Date: <%= booking.arrival_date %></p>
