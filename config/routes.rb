@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
+  post '/bookings/:id/reviews', to: 'reviews#create', as: :booking_reviews
+
   patch '/bookings/:id/accept', to: 'bookings#accept', as: :accept_booking
   patch '/bookings/:id/decline', to: 'bookings#decline', as: :decline_booking
 

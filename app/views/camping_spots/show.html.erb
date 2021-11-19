@@ -46,3 +46,34 @@
     </div>
   </div>
 </div>
+
+<div class="container mt-5">
+  <h2>
+    <%= pluralize @camping_spot.reviews.size, "review" %>
+  </h2>
+
+  <div id="reviews">
+    <% if @camping_spot.reviews.blank? %>
+      No reviews yet.
+    <% else %>
+      <ul class="list-group">
+        <% @camping_spot.reviews.each do |review| %>
+          <li class="list-group-item bg-transparent" id="review-<%= review.id %>">
+            <p class="font-weight-bold"><%= review.rating %> stars - <%= review.booking.visitor.name %></p>
+            <p><%= review.content %></p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <% if @booking %>
+    <div id="review-form">
+      <%= simple_form_for([ @booking, @review ], remote: true) do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :content %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
